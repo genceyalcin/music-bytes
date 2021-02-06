@@ -6,7 +6,7 @@
             <span>Project Title: {{projectState.projectName}}</span>
         </div>
         <!-- Tempo, Time Signature, and Key Box -->
-        <div id="tempo-sig-key-box" class="col-lg-5 rounded-box">
+        <div id="tempo-sig-key-box" class="col-lg-6 rounded-box">
             <div class="container-fluid">
                 <!-- Editing  -->
                 <div class="row" v-if="editingTSK">
@@ -68,12 +68,20 @@
                         <h3>{{projectState.key}}</h3>
                     </div>
                     <div class="col-2">
-                        <button class="btn btn-primary" @click="onClickEdit()">
+                        <button class="btn btn-violet" @click="onClickEdit()">
                             Edit
                         </button>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="offset-lg-1 col-lg-2 align-right align-self-center" id="save">
+            <button class="btn btn-success" style="margin-right: 10px;">
+                Save
+            </button>
+            <button class="btn btn-primary">
+                Export
+            </button>
         </div>
     </div>
     
@@ -124,6 +132,7 @@ export default class ToolBar extends Vue {
         padding: 10px 15px 10px 15px;
         background-color: blueviolet;
         color:white;
+        border-bottom: #531391 solid 3px;
     }
 
     #tempo-sig-key-box {
