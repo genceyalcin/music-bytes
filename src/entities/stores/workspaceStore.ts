@@ -6,15 +6,15 @@ export enum WorkspaceMode {
     ByteView
 }
 
-export interface IWorkspaceState {
+export interface WorkspaceState {
     currentMode: WorkspaceMode
 }
 
-export class WorkspaceStore extends Store<IWorkspaceState>{
+export class WorkspaceStore extends Store<WorkspaceState>{
 
     private static readonly DEFAULT_MODE: WorkspaceMode = WorkspaceMode.InstrumentView;
 
-    protected data(): IWorkspaceState {
+    protected data(): WorkspaceState {
         return {
             currentMode: WorkspaceStore.DEFAULT_MODE
         };

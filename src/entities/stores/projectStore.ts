@@ -24,17 +24,17 @@ export enum Key {
     B = "B"
 }
 
-export interface IProjectState {
-    projectName: string,
-    key: Key,
-    tempoInBeatsPerMinute: number,
-    timeSignatureNumerator: number,
-    timeSignatureDenominator: TimeSignatureDenominator
-    numberOfInstruments: number,
-    numberOfBytes: number
+export interface ProjectState {
+    projectName: string;
+    key: Key;
+    tempoInBeatsPerMinute: number;
+    timeSignatureNumerator: number;
+    timeSignatureDenominator: TimeSignatureDenominator;
+    numberOfTracks: number;
+    numberOfBytes: number;
 }
 
-export class ProjectStore extends Store<IProjectState> {
+export class ProjectStore extends Store<ProjectState> {
 
     private static readonly DEFAULT_PROJECT_NAME: string = "Untitled Project";
 
@@ -48,16 +48,16 @@ export class ProjectStore extends Store<IProjectState> {
     private static readonly TIME_SIGNATURE_NUMERATOR_MIN: number = 1;
     private static readonly TIME_SIGNATURE_NUMERATOR_MAX: number = 64;
 
-    protected data(): IProjectState {
+    protected data(): ProjectState {
         return {
             projectName: ProjectStore.DEFAULT_PROJECT_NAME,
             key: ProjectStore.DEFAULT_KEY,
             tempoInBeatsPerMinute: ProjectStore.DEFAULT_TEMPO_IN_BPM,
             timeSignatureNumerator: ProjectStore.DEFAULT_TIME_SIGNATURE_NUMERATOR,
             timeSignatureDenominator: ProjectStore.DEFAULT_TIME_SIGNATURE_DENOMINATOR,
-            numberOfInstruments: 0,
+            numberOfTracks: 0,
             numberOfBytes: 0
-        }
+        };
     }
 
     // Setters
@@ -85,7 +85,7 @@ export class ProjectStore extends Store<IProjectState> {
 
     // Incrementers & Decrementers
     incrementNumberOfInstruments() {
-        this.state.numberOfInstruments++;
+        this.state.numberOfTracks++;
     }
 
     incrementNumberOfBytes() {
@@ -93,7 +93,7 @@ export class ProjectStore extends Store<IProjectState> {
     }
 
     decrementNumberOfInstruments() {
-        this.state.numberOfInstruments--;
+        this.state.numberOfTracks--;
     }
 
     decrementNumberOfBytes() {

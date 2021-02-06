@@ -89,12 +89,12 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import { IProjectState, Key, projectStore, TimeSignatureDenominator } from "../entities/stores/projectStore";
+import { ProjectState, Key, projectStore, TimeSignatureDenominator } from "../entities/stores/projectStore";
 
 @Options({})
 export default class ToolBar extends Vue {
 
-    projectState: IProjectState = projectStore.getState();
+    projectState: ProjectState = projectStore.getState();
     denominators: number[] = Object.keys(TimeSignatureDenominator)
         .map(n => Number.parseInt(n))
         .filter(n => n);
