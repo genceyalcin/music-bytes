@@ -1,4 +1,6 @@
 # music-bytes
+Music bytes is a static web application where you can create songs. 
+The project uses WebAssembly and the Web Audio API to provide an online mini-DAW experience. 
 
 ## Project setup
 ```
